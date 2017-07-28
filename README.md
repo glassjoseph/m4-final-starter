@@ -1,27 +1,32 @@
 # URLockBox
 
-## Final Assessment
+# README
 
-The URLockbox is a starter app for the final assessment for module 4 of the backend engineering program at Turing School of Software and Design.
+## Summary
+URLockBox is a handy web app that allows you to add links and track their read status.
 
-Be sure to get familiar with what is already done, and what is not. No features are complete, but there is some set up done for several features. Use commit history if that helps.
+## To Clone: 
 
-### Testing your JS with Selenium
+`git clone git@github.com:glassjoseph/m4-final-starter.git`
+`cd m4-final-starter`
+`bundle install`
 
-The app has the `selenium-webdriver` gem listed in the `Gemfile` and setup in the `rails_helper.rb`
+## To Set Up Database:
+`rake db:create`
+`rake db:migrate`
+`rake db:create`
 
-#### Setup
 
-Everything will be installed with Bundle.
+## To run the test suite:
+`rspec`
 
-You will need to download version 46 of Firefox [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it is on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else it will potentially cause you problems.
 
-If you already have Firefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall Firefox then install version 46.
+## Hot Reads Service:
 
-#### Use
+URLockBox is integrated with a Hot Reads backend service which tracks link reads and provides polularity info. Check out its repo [here](https://github.com/glassjoseph/hot_reads).
 
-You can then write capybara feature tests and add `js: true` tag if you'd like your test to use the Selenium WebDriver rather than the default WebDriver.  Your tests will execute and recognize your JavaScript.
 
-If you're having problems troubleshooting asynchronous actions (like DOM changes after an AJAX request), [peruse this section of Capybara's docs](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
-
-It is highly suggested that you also check out the Capybara docs and and the section on [selenium-webdriver](https://github.com/teamcapybara/capybara#selenium).
+| Verb        | URL           | Action  |
+| ------------- |-------------| -----|
+| GET     | https://hotreads-jg.herokuapp.com/api/v1/reads| Returns a json formatted list of top ten links, ordered by popularity |
+| POST      | https://hotreads-jg.herokuapp.com/api/v1/reads?url=your_link_here     |   Creates a read record of your_link |
